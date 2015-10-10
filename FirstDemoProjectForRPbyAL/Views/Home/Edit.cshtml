@@ -1,0 +1,71 @@
+﻿@model FirstDemoProjectForRPbyAL.ViewModels.UserEdit
+
+@{
+    ViewBag.Title = "Edit - User Table Project";
+}
+
+<h2 class="text-center">Edit User</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h3 class="field-validation-error">@ViewBag.Error</h3>
+        <h4><i style="font-size: 40px;" class="fa fa-user"></i></h4>
+        <hr /> <br/><br/><br />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.User.UserId)
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.User.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.User.FirstName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.User.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.User.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.User.LastName, new {  @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.User.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.User.EmailAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.PasswordFor(model => model.User.EmailAddress, new { @class = "form-control" , value = Model.User.EmailAddress  })
+                @Html.ValidationMessageFor(model => model.User.EmailAddress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.User.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.PasswordFor(model => model.User.Password, new { @class = "form-control", placeholder = "Your Password", value = Model.User.Password })
+                @Html.ValidationMessageFor(model => model.User.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-success btn-block btn-lg" />
+            </div>
+        </div>
+    </div>
+}
+<br /><br /><br />
+<div class="btn btn-default fa fa-undo">
+    @Html.ActionLink(" Cancel and return to User Table", "Index", "Home",
+        new 
+        {
+          page =  Model.PageNumber,
+          sortOrder = Model.SortOrder
+        }, null )
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

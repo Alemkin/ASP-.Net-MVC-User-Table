@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Error - User Table Project";
+}
+@{
+    Response.StatusCode = 500;
+}
+
+<h1 class="field-validation-error"> Sorry, there appears to have been an error:</h1> <br />
+<h3 class="error-message">@ViewBag.Message</h3>
+
+<br />
+<br />
+<div class="glyphicon glyphicon-arrow-left"> </div> @Html.ActionLink("Click to Return Home", "Index", "Home")
+
+@section Scripts {
+    <script>
+        function isEmpty(el) {
+            return !$.trim(el.html());
+        }
+        //If the message is empty then toss in default
+        $(document).ready(function () {
+            if (isEmpty($(".error-message"))) {
+                $(".error-message").text("500 - Internal Server Error");
+            }
+        });
+
+    </script>
+}

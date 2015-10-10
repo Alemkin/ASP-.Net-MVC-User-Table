@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DeadlinesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Inactive" Type="bit" Nullable="false" />
+    <Property Name="Corporate" Type="bit" />
+    <Property Name="PrimaryUserId" Type="int" />
+    <Property Name="Discount" Type="smallint" />
+    <Property Name="MarkUpDn" Type="smallint" />
+    <Property Name="AddedOn" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="ChangedOn" Type="datetimeoffset" Precision="7" />
+    <Property Name="BillingType" Type="int" />
+    <Property Name="CompletedRegistration" Type="bit" Nullable="false" />
+    <Property Name="SupportNotes" Type="nvarchar(max)" />
+    <Property Name="FirmName" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="Attention" Type="nvarchar" MaxLength="35" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="40" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="40" />
+    <Property Name="City" Type="nvarchar" MaxLength="20" />
+    <Property Name="StateProv" Type="nvarchar" MaxLength="20" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="Country" Type="nvarchar" MaxLength="20" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="CustomerOriginId" Type="int" />
+    <Property Name="ServiceCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="BillingAmountSurcharge" Type="nvarchar" MaxLength="20" />
+    <Property Name="CsvTemplateId" Type="int" />
+    <Property Name="BillingDay" Type="int" Nullable="false" />
+    <Property Name="BillingEmailAddress" Type="nvarchar(max)" />
+    <Property Name="CreditNotificationThreshold" Type="int" />
+    <Property Name="BillingDescription" Type="nvarchar" MaxLength="50" />
+    <Property Name="BillingIncludeFreeCalculations" Type="bit" Nullable="false" />
+    <Property Name="IncludeCSVFileInEmails" Type="bit" Nullable="false" />
+    <Property Name="SignUpHowUserFoundDeadlinesType" Type="int" />
+    <Property Name="IsSuspended" Type="bit" Nullable="false" />
+    <Property Name="IsTestAccount" Type="bit" Nullable="false" />
+    <Property Name="PartnerID" Type="int" />
+    <Property Name="CNSEmailAddress" Type="nvarchar(max)" />
+    <Property Name="AuthenticationTokenId" Type="int" />
+    <Property Name="Domain" Type="varchar(max)" />
+    <Property Name="LinkedCustomerProfileId" Type="int" />
+  </EntityType>
+  <EntityType Name="Partner">
+    <Key>
+      <PropertyRef Name="PartnerID" />
+    </Key>
+    <Property Name="PartnerID" Type="int" Nullable="false" />
+    <Property Name="PartnerGUID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ChangedOn" Type="datetime" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="CustomerOriginId" Type="int" Nullable="false" />
+    <Property Name="AuthenticationTokenId" Type="int" />
+    <Property Name="BillingType" Type="int" Nullable="false" />
+    <Property Name="RateDiscountType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Visits" Type="int" Nullable="false" />
+    <Property Name="LastVisitedOn" Type="datetimeoffset" Precision="7" />
+    <Property Name="AddedOn" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="ChangedOn" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="Inactive" Type="bit" Nullable="false" />
+    <Property Name="EULAAgreedOn" Type="datetimeoffset" Precision="7" />
+    <Property Name="JobType" Type="int" Nullable="false" />
+    <Property Name="IsAdministrator" Type="bit" Nullable="false" />
+    <Property Name="MaxReminders" Type="int" Nullable="false" />
+    <Property Name="PromoEmailSubscriber" Type="bit" Nullable="false" />
+    <Property Name="AllowConsolidated" Type="bit" Nullable="false" />
+    <Property Name="ActivatedOn" Type="datetimeoffset" Precision="7" />
+    <Property Name="MustChangePassword" Type="bit" Nullable="false" />
+    <Property Name="SentActivationEmail" Type="bit" />
+    <Property Name="IncludeICSFileInEmails" Type="bit" Nullable="false" />
+    <Property Name="FirstSync" Type="datetimeoffset" Precision="7" />
+    <Property Name="MembershipNoThankYouDate" Type="datetimeoffset" Precision="7" />
+    <Property Name="LastChangeLogSentOn" Type="datetimeoffset" Precision="7" />
+    <Property Name="SyncNoTimeDeadlinesAsTasks" Type="bit" Nullable="false" />
+    <Property Name="CaseRemindersDays" Type="int" Nullable="false" />
+    <Property Name="CaseRemindersTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="CaseRemindersRollup" Type="bit" Nullable="false" />
+    <Property Name="CaseRemindersLastSent" Type="datetimeoffset" Precision="7" />
+    <Property Name="TimeZoneLookupId" Type="int" Nullable="false" />
+    <Property Name="HasViewedSplashDialog" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Customer_Partner">
+    <End Role="Partner" Type="Self.Partner" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Partner">
+        <PropertyRef Name="PartnerID" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="PartnerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DeadlinesModelStoreContainer">
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Partner" EntityType="Self.Partner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Customer_Partner" Association="Self.FK_Customer_Partner">
+      <End Role="Partner" EntitySet="Partner" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Customer" Association="Self.FK_User_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

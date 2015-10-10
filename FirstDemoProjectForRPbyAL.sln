@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstDemoProjectForRPbyAL", "FirstDemoProjectForRPbyAL\FirstDemoProjectForRPbyAL.csproj", "{0CF25E7B-2043-4C12-B8FB-EFD1873400FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstDemoProjectForRPbyAL.Tests", "FirstDemoProjectForRPbyAL.Tests\FirstDemoProjectForRPbyAL.Tests.csproj", "{BA715563-80EF-41A7-8E61-F51D5E766477}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CF25E7B-2043-4C12-B8FB-EFD1873400FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CF25E7B-2043-4C12-B8FB-EFD1873400FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CF25E7B-2043-4C12-B8FB-EFD1873400FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CF25E7B-2043-4C12-B8FB-EFD1873400FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA715563-80EF-41A7-8E61-F51D5E766477}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA715563-80EF-41A7-8E61-F51D5E766477}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA715563-80EF-41A7-8E61-F51D5E766477}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA715563-80EF-41A7-8E61-F51D5E766477}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

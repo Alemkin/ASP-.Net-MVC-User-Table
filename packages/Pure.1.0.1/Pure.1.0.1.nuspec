@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Pure</id>
+    <version>1.0.1</version>
+    <authors>devilishgoat</authors>
+    <owners>devilishgoat</owners>
+    <licenseUrl>https://github.com/yui/pure/blob/master/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/yui/pure-release</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Nuget package for http://purecss.io</description>
+    <copyright>Copyright 2013 Yahoo! Inc. All rights reserved.</copyright>
+  </metadata>
+</package>

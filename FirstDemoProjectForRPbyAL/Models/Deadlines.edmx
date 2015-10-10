@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DeadlinesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Inactive" Type="bit" Nullable="false" />
+          <Property Name="Corporate" Type="bit" />
+          <Property Name="PrimaryUserId" Type="int" />
+          <Property Name="Discount" Type="smallint" />
+          <Property Name="MarkUpDn" Type="smallint" />
+          <Property Name="AddedOn" Type="datetimeoffset" Precision="7" Nullable="false" />
+          <Property Name="ChangedOn" Type="datetimeoffset" Precision="7" />
+          <Property Name="BillingType" Type="int" />
+          <Property Name="CompletedRegistration" Type="bit" Nullable="false" />
+          <Property Name="SupportNotes" Type="nvarchar(max)" />
+          <Property Name="FirmName" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="Attention" Type="nvarchar" MaxLength="35" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="40" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="40" />
+          <Property Name="City" Type="nvarchar" MaxLength="20" />
+          <Property Name="StateProv" Type="nvarchar" MaxLength="20" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="Country" Type="nvarchar" MaxLength="20" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+          <Property Name="CustomerOriginId" Type="int" />
+          <Property Name="ServiceCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="BillingAmountSurcharge" Type="nvarchar" MaxLength="20" />
+          <Property Name="CsvTemplateId" Type="int" />
+          <Property Name="BillingDay" Type="int" Nullable="false" />
+          <Property Name="BillingEmailAddress" Type="nvarchar(max)" />
+          <Property Name="CreditNotificationThreshold" Type="int" />
+          <Property Name="BillingDescription" Type="nvarchar" MaxLength="50" />
+          <Property Name="BillingIncludeFreeCalculations" Type="bit" Nullable="false" />
+          <Property Name="IncludeCSVFileInEmails" Type="bit" Nullable="false" />
+          <Property Name="SignUpHowUserFoundDeadlinesType" Type="int" />
+          <Property Name="IsSuspended" Type="bit" Nullable="false" />
+          <Property Name="IsTestAccount" Type="bit" Nullable="false" />
+          <Property Name="PartnerID" Type="int" />
+          <Property Name="CNSEmailAddress" Type="nvarchar(max)" />
+          <Property Name="AuthenticationTokenId" Type="int" />
+          <Property Name="Domain" Type="varchar(max)" />
+          <Property Name="LinkedCustomerProfileId" Type="int" />
+        </EntityType>
+        <EntityType Name="Partner">
+          <Key>
+            <PropertyRef Name="PartnerID" />
+          </Key>
+          <Property Name="PartnerID" Type="int" Nullable="false" />
+          <Property Name="PartnerGUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="ChangedOn" Type="datetime" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="CustomerOriginId" Type="int" Nullable="false" />
+          <Property Name="AuthenticationTokenId" Type="int" />
+          <Property Name="BillingType" Type="int" Nullable="false" />
+          <Property Name="RateDiscountType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Visits" Type="int" Nullable="false" />
+          <Property Name="LastVisitedOn" Type="datetimeoffset" Precision="7" />
+          <Property Name="AddedOn" Type="datetimeoffset" Precision="7" Nullable="false" />
+          <Property Name="ChangedOn" Type="datetimeoffset" Precision="7" Nullable="false" />
+          <Property Name="Inactive" Type="bit" Nullable="false" />
+          <Property Name="EULAAgreedOn" Type="datetimeoffset" Precision="7" />
+          <Property Name="JobType" Type="int" Nullable="false" />
+          <Property Name="IsAdministrator" Type="bit" Nullable="false" />
+          <Property Name="MaxReminders" Type="int" Nullable="false" />
+          <Property Name="PromoEmailSubscriber" Type="bit" Nullable="false" />
+          <Property Name="AllowConsolidated" Type="bit" Nullable="false" />
+          <Property Name="ActivatedOn" Type="datetimeoffset" Precision="7" />
+          <Property Name="MustChangePassword" Type="bit" Nullable="false" />
+          <Property Name="SentActivationEmail" Type="bit" />
+          <Property Name="IncludeICSFileInEmails" Type="bit" Nullable="false" />
+          <Property Name="FirstSync" Type="datetimeoffset" Precision="7" />
+          <Property Name="MembershipNoThankYouDate" Type="datetimeoffset" Precision="7" />
+          <Property Name="LastChangeLogSentOn" Type="datetimeoffset" Precision="7" />
+          <Property Name="SyncNoTimeDeadlinesAsTasks" Type="bit" Nullable="false" />
+          <Property Name="CaseRemindersDays" Type="int" Nullable="false" />
+          <Property Name="CaseRemindersTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="CaseRemindersRollup" Type="bit" Nullable="false" />
+          <Property Name="CaseRemindersLastSent" Type="datetimeoffset" Precision="7" />
+          <Property Name="TimeZoneLookupId" Type="int" Nullable="false" />
+          <Property Name="HasViewedSplashDialog" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Customer_Partner">
+          <End Role="Partner" Type="Self.Partner" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partner">
+              <PropertyRef Name="PartnerID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="PartnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DeadlinesModelStoreContainer">
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Partner" EntityType="Self.Partner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Customer_Partner" Association="Self.FK_Customer_Partner">
+            <End Role="Partner" EntitySet="Partner" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Customer" Association="Self.FK_User_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DeadlinesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Inactive" Type="Boolean" Nullable="false" />
+          <Property Name="Corporate" Type="Boolean" />
+          <Property Name="PrimaryUserId" Type="Int32" />
+          <Property Name="Discount" Type="Int16" />
+          <Property Name="MarkUpDn" Type="Int16" />
+          <Property Name="AddedOn" Type="DateTimeOffset" Nullable="false" Precision="7" />
+          <Property Name="ChangedOn" Type="DateTimeOffset" Precision="7" />
+          <Property Name="BillingType" Type="Int32" />
+          <Property Name="CompletedRegistration" Type="Boolean" Nullable="false" />
+          <Property Name="SupportNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FirmName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Attention" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="StateProv" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerOriginId" Type="Int32" />
+          <Property Name="ServiceCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="BillingAmountSurcharge" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CsvTemplateId" Type="Int32" />
+          <Property Name="BillingDay" Type="Int32" Nullable="false" />
+          <Property Name="BillingEmailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreditNotificationThreshold" Type="Int32" />
+          <Property Name="BillingDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BillingIncludeFreeCalculations" Type="Boolean" Nullable="false" />
+          <Property Name="IncludeCSVFileInEmails" Type="Boolean" Nullable="false" />
+          <Property Name="SignUpHowUserFoundDeadlinesType" Type="Int32" />
+          <Property Name="IsSuspended" Type="Boolean" Nullable="false" />
+          <Property Name="IsTestAccount" Type="Boolean" Nullable="false" />
+          <Property Name="PartnerID" Type="Int32" />
+          <Property Name="CNSEmailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AuthenticationTokenId" Type="Int32" />
+          <Property Name="Domain" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LinkedCustomerProfileId" Type="Int32" />
+          <NavigationProperty Name="Partner" Relationship="Self.FK_Customer_Partner" FromRole="Customer" ToRole="Partner" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_User_Customer" FromRole="Customer" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Partner">
+          <Key>
+            <PropertyRef Name="PartnerID" />
+          </Key>
+          <Property Name="PartnerID" Type="Int32" Nullable="false" />
+          <Property Name="PartnerGUID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ChangedOn" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerOriginId" Type="Int32" Nullable="false" />
+          <Property Name="AuthenticationTokenId" Type="Int32" />
+          <Property Name="BillingType" Type="Int32" Nullable="false" />
+          <Property Name="RateDiscountType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_Partner" FromRole="Partner" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Visits" Type="Int32" Nullable="false" />
+          <Property Name="LastVisitedOn" Type="DateTimeOffset" Precision="7" />
+          <Property Name="AddedOn" Type="DateTimeOffset" Nullable="false" Precision="7" />
+          <Property Name="ChangedOn" Type="DateTimeOffset" Nullable="false" Precision="7" />
+          <Property Name="Inactive" Type="Boolean" Nullable="false" />
+          <Property Name="EULAAgreedOn" Type="DateTimeOffset" Precision="7" />
+          <Property Name="JobType" Type="Int32" Nullable="false" />
+          <Property Name="IsAdministrator" Type="Boolean" Nullable="false" />
+          <Property Name="MaxReminders" Type="Int32" Nullable="false" />
+          <Property Name="PromoEmailSubscriber" Type="Boolean" Nullable="false" />
+          <Property Name="AllowConsolidated" Type="Boolean" Nullable="false" />
+          <Property Name="ActivatedOn" Type="DateTimeOffset" Precision="7" />
+          <Property Name="MustChangePassword" Type="Boolean" Nullable="false" />
+          <Property Name="SentActivationEmail" Type="Boolean" />
+          <Property Name="IncludeICSFileInEmails" Type="Boolean" Nullable="false" />
+          <Property Name="FirstSync" Type="DateTimeOffset" Precision="7" />
+          <Property Name="MembershipNoThankYouDate" Type="DateTimeOffset" Precision="7" />
+          <Property Name="LastChangeLogSentOn" Type="DateTimeOffset" Precision="7" />
+          <Property Name="SyncNoTimeDeadlinesAsTasks" Type="Boolean" Nullable="false" />
+          <Property Name="CaseRemindersDays" Type="Int32" Nullable="false" />
+          <Property Name="CaseRemindersTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="CaseRemindersRollup" Type="Boolean" Nullable="false" />
+          <Property Name="CaseRemindersLastSent" Type="DateTimeOffset" Precision="7" />
+          <Property Name="TimeZoneLookupId" Type="Int32" Nullable="false" />
+          <Property Name="HasViewedSplashDialog" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_User_Customer" FromRole="User" ToRole="Customer" />
+        </EntityType>
+        <Association Name="FK_Customer_Partner">
+          <End Role="Partner" Type="Self.Partner" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partner">
+              <PropertyRef Name="PartnerID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="PartnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DeadlinesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Partners" EntityType="Self.Partner" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Customer_Partner" Association="Self.FK_Customer_Partner">
+            <End Role="Partner" EntitySet="Partners" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Customer" Association="Self.FK_User_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DeadlinesModelStoreContainer" CdmEntityContainer="DeadlinesEntities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="DeadlinesModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+                <ScalarProperty Name="Corporate" ColumnName="Corporate" />
+                <ScalarProperty Name="PrimaryUserId" ColumnName="PrimaryUserId" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="MarkUpDn" ColumnName="MarkUpDn" />
+                <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+                <ScalarProperty Name="ChangedOn" ColumnName="ChangedOn" />
+                <ScalarProperty Name="BillingType" ColumnName="BillingType" />
+                <ScalarProperty Name="CompletedRegistration" ColumnName="CompletedRegistration" />
+                <ScalarProperty Name="SupportNotes" ColumnName="SupportNotes" />
+                <ScalarProperty Name="FirmName" ColumnName="FirmName" />
+                <ScalarProperty Name="Attention" ColumnName="Attention" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="StateProv" ColumnName="StateProv" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="CustomerOriginId" ColumnName="CustomerOriginId" />
+                <ScalarProperty Name="ServiceCode" ColumnName="ServiceCode" />
+                <ScalarProperty Name="BillingAmountSurcharge" ColumnName="BillingAmountSurcharge" />
+                <ScalarProperty Name="CsvTemplateId" ColumnName="CsvTemplateId" />
+                <ScalarProperty Name="BillingDay" ColumnName="BillingDay" />
+                <ScalarProperty Name="BillingEmailAddress" ColumnName="BillingEmailAddress" />
+                <ScalarProperty Name="CreditNotificationThreshold" ColumnName="CreditNotificationThreshold" />
+                <ScalarProperty Name="BillingDescription" ColumnName="BillingDescription" />
+                <ScalarProperty Name="BillingIncludeFreeCalculations" ColumnName="BillingIncludeFreeCalculations" />
+                <ScalarProperty Name="IncludeCSVFileInEmails" ColumnName="IncludeCSVFileInEmails" />
+                <ScalarProperty Name="SignUpHowUserFoundDeadlinesType" ColumnName="SignUpHowUserFoundDeadlinesType" />
+                <ScalarProperty Name="IsSuspended" ColumnName="IsSuspended" />
+                <ScalarProperty Name="IsTestAccount" ColumnName="IsTestAccount" />
+                <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+                <ScalarProperty Name="CNSEmailAddress" ColumnName="CNSEmailAddress" />
+                <ScalarProperty Name="AuthenticationTokenId" ColumnName="AuthenticationTokenId" />
+                <ScalarProperty Name="Domain" ColumnName="Domain" />
+                <ScalarProperty Name="LinkedCustomerProfileId" ColumnName="LinkedCustomerProfileId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Partners">
+            <EntityTypeMapping TypeName="DeadlinesModel.Partner">
+              <MappingFragment StoreEntitySet="Partner">
+                <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+                <ScalarProperty Name="PartnerGUID" ColumnName="PartnerGUID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ChangedOn" ColumnName="ChangedOn" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="CustomerOriginId" ColumnName="CustomerOriginId" />
+                <ScalarProperty Name="AuthenticationTokenId" ColumnName="AuthenticationTokenId" />
+                <ScalarProperty Name="BillingType" ColumnName="BillingType" />
+                <ScalarProperty Name="RateDiscountType" ColumnName="RateDiscountType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="DeadlinesModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Visits" ColumnName="Visits" />
+                <ScalarProperty Name="LastVisitedOn" ColumnName="LastVisitedOn" />
+                <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+                <ScalarProperty Name="ChangedOn" ColumnName="ChangedOn" />
+                <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+                <ScalarProperty Name="EULAAgreedOn" ColumnName="EULAAgreedOn" />
+                <ScalarProperty Name="JobType" ColumnName="JobType" />
+                <ScalarProperty Name="IsAdministrator" ColumnName="IsAdministrator" />
+                <ScalarProperty Name="MaxReminders" ColumnName="MaxReminders" />
+                <ScalarProperty Name="PromoEmailSubscriber" ColumnName="PromoEmailSubscriber" />
+                <ScalarProperty Name="AllowConsolidated" ColumnName="AllowConsolidated" />
+                <ScalarProperty Name="ActivatedOn" ColumnName="ActivatedOn" />
+                <ScalarProperty Name="MustChangePassword" ColumnName="MustChangePassword" />
+                <ScalarProperty Name="SentActivationEmail" ColumnName="SentActivationEmail" />
+                <ScalarProperty Name="IncludeICSFileInEmails" ColumnName="IncludeICSFileInEmails" />
+                <ScalarProperty Name="FirstSync" ColumnName="FirstSync" />
+                <ScalarProperty Name="MembershipNoThankYouDate" ColumnName="MembershipNoThankYouDate" />
+                <ScalarProperty Name="LastChangeLogSentOn" ColumnName="LastChangeLogSentOn" />
+                <ScalarProperty Name="SyncNoTimeDeadlinesAsTasks" ColumnName="SyncNoTimeDeadlinesAsTasks" />
+                <ScalarProperty Name="CaseRemindersDays" ColumnName="CaseRemindersDays" />
+                <ScalarProperty Name="CaseRemindersTime" ColumnName="CaseRemindersTime" />
+                <ScalarProperty Name="CaseRemindersRollup" ColumnName="CaseRemindersRollup" />
+                <ScalarProperty Name="CaseRemindersLastSent" ColumnName="CaseRemindersLastSent" />
+                <ScalarProperty Name="TimeZoneLookupId" ColumnName="TimeZoneLookupId" />
+                <ScalarProperty Name="HasViewedSplashDialog" ColumnName="HasViewedSplashDialog" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

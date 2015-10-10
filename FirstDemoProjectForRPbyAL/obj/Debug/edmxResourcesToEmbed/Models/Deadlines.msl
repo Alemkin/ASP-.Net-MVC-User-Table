@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DeadlinesModelStoreContainer" CdmEntityContainer="DeadlinesEntities">
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="DeadlinesModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+          <ScalarProperty Name="Corporate" ColumnName="Corporate" />
+          <ScalarProperty Name="PrimaryUserId" ColumnName="PrimaryUserId" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="MarkUpDn" ColumnName="MarkUpDn" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="ChangedOn" ColumnName="ChangedOn" />
+          <ScalarProperty Name="BillingType" ColumnName="BillingType" />
+          <ScalarProperty Name="CompletedRegistration" ColumnName="CompletedRegistration" />
+          <ScalarProperty Name="SupportNotes" ColumnName="SupportNotes" />
+          <ScalarProperty Name="FirmName" ColumnName="FirmName" />
+          <ScalarProperty Name="Attention" ColumnName="Attention" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="StateProv" ColumnName="StateProv" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="CustomerOriginId" ColumnName="CustomerOriginId" />
+          <ScalarProperty Name="ServiceCode" ColumnName="ServiceCode" />
+          <ScalarProperty Name="BillingAmountSurcharge" ColumnName="BillingAmountSurcharge" />
+          <ScalarProperty Name="CsvTemplateId" ColumnName="CsvTemplateId" />
+          <ScalarProperty Name="BillingDay" ColumnName="BillingDay" />
+          <ScalarProperty Name="BillingEmailAddress" ColumnName="BillingEmailAddress" />
+          <ScalarProperty Name="CreditNotificationThreshold" ColumnName="CreditNotificationThreshold" />
+          <ScalarProperty Name="BillingDescription" ColumnName="BillingDescription" />
+          <ScalarProperty Name="BillingIncludeFreeCalculations" ColumnName="BillingIncludeFreeCalculations" />
+          <ScalarProperty Name="IncludeCSVFileInEmails" ColumnName="IncludeCSVFileInEmails" />
+          <ScalarProperty Name="SignUpHowUserFoundDeadlinesType" ColumnName="SignUpHowUserFoundDeadlinesType" />
+          <ScalarProperty Name="IsSuspended" ColumnName="IsSuspended" />
+          <ScalarProperty Name="IsTestAccount" ColumnName="IsTestAccount" />
+          <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+          <ScalarProperty Name="CNSEmailAddress" ColumnName="CNSEmailAddress" />
+          <ScalarProperty Name="AuthenticationTokenId" ColumnName="AuthenticationTokenId" />
+          <ScalarProperty Name="Domain" ColumnName="Domain" />
+          <ScalarProperty Name="LinkedCustomerProfileId" ColumnName="LinkedCustomerProfileId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Partners">
+      <EntityTypeMapping TypeName="DeadlinesModel.Partner">
+        <MappingFragment StoreEntitySet="Partner">
+          <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+          <ScalarProperty Name="PartnerGUID" ColumnName="PartnerGUID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ChangedOn" ColumnName="ChangedOn" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="CustomerOriginId" ColumnName="CustomerOriginId" />
+          <ScalarProperty Name="AuthenticationTokenId" ColumnName="AuthenticationTokenId" />
+          <ScalarProperty Name="BillingType" ColumnName="BillingType" />
+          <ScalarProperty Name="RateDiscountType" ColumnName="RateDiscountType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DeadlinesModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Visits" ColumnName="Visits" />
+          <ScalarProperty Name="LastVisitedOn" ColumnName="LastVisitedOn" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="ChangedOn" ColumnName="ChangedOn" />
+          <ScalarProperty Name="Inactive" ColumnName="Inactive" />
+          <ScalarProperty Name="EULAAgreedOn" ColumnName="EULAAgreedOn" />
+          <ScalarProperty Name="JobType" ColumnName="JobType" />
+          <ScalarProperty Name="IsAdministrator" ColumnName="IsAdministrator" />
+          <ScalarProperty Name="MaxReminders" ColumnName="MaxReminders" />
+          <ScalarProperty Name="PromoEmailSubscriber" ColumnName="PromoEmailSubscriber" />
+          <ScalarProperty Name="AllowConsolidated" ColumnName="AllowConsolidated" />
+          <ScalarProperty Name="ActivatedOn" ColumnName="ActivatedOn" />
+          <ScalarProperty Name="MustChangePassword" ColumnName="MustChangePassword" />
+          <ScalarProperty Name="SentActivationEmail" ColumnName="SentActivationEmail" />
+          <ScalarProperty Name="IncludeICSFileInEmails" ColumnName="IncludeICSFileInEmails" />
+          <ScalarProperty Name="FirstSync" ColumnName="FirstSync" />
+          <ScalarProperty Name="MembershipNoThankYouDate" ColumnName="MembershipNoThankYouDate" />
+          <ScalarProperty Name="LastChangeLogSentOn" ColumnName="LastChangeLogSentOn" />
+          <ScalarProperty Name="SyncNoTimeDeadlinesAsTasks" ColumnName="SyncNoTimeDeadlinesAsTasks" />
+          <ScalarProperty Name="CaseRemindersDays" ColumnName="CaseRemindersDays" />
+          <ScalarProperty Name="CaseRemindersTime" ColumnName="CaseRemindersTime" />
+          <ScalarProperty Name="CaseRemindersRollup" ColumnName="CaseRemindersRollup" />
+          <ScalarProperty Name="CaseRemindersLastSent" ColumnName="CaseRemindersLastSent" />
+          <ScalarProperty Name="TimeZoneLookupId" ColumnName="TimeZoneLookupId" />
+          <ScalarProperty Name="HasViewedSplashDialog" ColumnName="HasViewedSplashDialog" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,196 @@
+﻿@model PagedList.IPagedList<FirstDemoProjectForRPbyAL.ViewModels.FullUserInfo>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+
+@{
+    ViewBag.Title = "User Table Project";
+}
+
+<h2 class="text-center"><i class="fa fa-users"></i> Table of Users</h2>
+<br/>
+    
+<h4 style="float: left; font-size: 18px; " class="btn btn-default fa fa-plus">@Html.ActionLink(" Create New User", "Create", new { page = ViewBag.CurrentPage, sortOrder = ViewBag.CurrentSort })</h4>
+
+    @using (Html.BeginForm("Index", "Home", new {sortOrder = ViewBag.CurrentSort, pageSizeSelection = ViewBag.PageSizeSelection } ))
+    {
+        <p style="float: right;" class="form-group">
+            Find by User Name <i class="fa fa-search"></i>@Html.TextBox("userSearchString", ViewBag.CurrentUserNameFilter as string, new { @class = "form-control" })
+            <input type="submit" class="btn btn-info" value="Search" />
+        </p>
+    }
+
+<table class="table table-striped table-condensed table-bordered table-responsive table-hover">
+    <tr>
+        <th>
+            <i class="fa fa-sort"></i>
+            @Html.ActionLink("Customer ID", "Index", new { sortOrder = ViewBag.CustomerIDSortParm, page = ViewBag.CurrentPage, pageSizeSelection = ViewBag.PageSizeSelection, userSearchString = ViewBag.CurrentUserNameFilter, customerFirmName = ViewBag.CurrentFirmNameFilter, customerCity = ViewBag.CurrentCityFilter, partnerName = ViewBag.CurrentPartnerNameFilter, customerZip = ViewBag.CurrentCustomerZipFilter })
+        </th>
+        <th>
+            <i class="fa fa-sort"></i>
+            @Html.ActionLink("Customer Firm Name", "Index", new { sortOrder = ViewBag.FirmNameSortParm, page = ViewBag.CurrentPage, pageSizeSelection = ViewBag.PageSizeSelection, userSearchString = ViewBag.CurrentUserNameFilter, customerFirmName = ViewBag.CurrentFirmNameFilter, customerCity = ViewBag.CurrentCityFilter, partnerName = ViewBag.CurrentPartnerNameFilter, customerZip = ViewBag.CurrentCustomerZipFilter })
+        </th>
+        <th>
+            <i class="fa fa-sort"></i>
+            @Html.ActionLink("Customer City", "Index", new { sortOrder = ViewBag.CustomerCityParm, page = ViewBag.CurrentPage, pageSizeSelection = ViewBag.PageSizeSelection, userSearchString = ViewBag.CurrentUserNameFilter, customerFirmName = ViewBag.CurrentFirmNameFilter, customerCity = ViewBag.CurrentCityFilter, partnerName = ViewBag.CurrentPartnerNameFilter, customerZip = ViewBag.CurrentCustomerZipFilter })
+        </th>
+        <th>
+            <i class="fa fa-sort"></i>
+            @Html.ActionLink("Customer Zip", "Index", new { sortOrder = ViewBag.CustomerZipSortParm, page = ViewBag.CurrentPage, pageSizeSelection = ViewBag.PageSizeSelection, userSearchString = ViewBag.CurrentUserNameFilter, customerFirmName = ViewBag.CurrentFirmNameFilter, customerCity = ViewBag.CurrentCityFilter, partnerName = ViewBag.CurrentPartnerNameFilter, customerZip = ViewBag.CurrentCustomerZipFilter })
+        </th>
+        <th>
+            <i class="fa fa-sort"></i>
+            @Html.ActionLink("Partner ID", "Index", new { sortOrder = ViewBag.PartnerIDSortParm, page = ViewBag.CurrentPage, pageSizeSelection = ViewBag.PageSizeSelection, userSearchString = ViewBag.CurrentUserNameFilter, customerFirmName = ViewBag.CurrentFirmNameFilter, customerCity = ViewBag.CurrentCityFilter, partnerName = ViewBag.CurrentPartnerNameFilter, customerZip = ViewBag.CurrentCustomerZipFilter })
+        </th>
+        <th>
+            <i class="fa fa-sort"></i>
+            @Html.ActionLink("Partner Name", "Index", new { sortOrder = ViewBag.PartnerNameSortParm, page = ViewBag.CurrentPage, pageSizeSelection = ViewBag.PageSizeSelection, userSearchString = ViewBag.CurrentUserNameFilter, customerFirmName = ViewBag.CurrentFirmNameFilter, customerCity = ViewBag.CurrentCityFilter, partnerName = ViewBag.CurrentPartnerNameFilter, customerZip = ViewBag.CurrentCustomerZipFilter })
+        </th>
+        <th>
+            <i class="fa fa-sort"></i>
+            @Html.ActionLink("Partner Created On", "Index", new { sortOrder = ViewBag.PartnerCreatedSortParm, page = ViewBag.CurrentPage, pageSizeSelection = ViewBag.PageSizeSelection, userSearchString = ViewBag.CurrentUserNameFilter, customerFirmName = ViewBag.CurrentFirmNameFilter, customerCity = ViewBag.CurrentCityFilter, partnerName = ViewBag.CurrentPartnerNameFilter, customerZip = ViewBag.CurrentCustomerZipFilter })
+        </th>       
+        <th>
+            <i class="fa fa-sort"></i>
+            @Html.ActionLink("User ID", "Index", new { sortOrder = ViewBag.IdSortParm, page = ViewBag.CurrentPage, pageSizeSelection = ViewBag.PageSizeSelection, userSearchString = ViewBag.CurrentUserNameFilter, customerFirmName = ViewBag.CurrentFirmNameFilter, customerCity = ViewBag.CurrentCityFilter, partnerName = ViewBag.CurrentPartnerNameFilter, customerZip = ViewBag.CurrentCustomerZipFilter })
+        </th>
+        <th>
+            <i class="fa fa-sort"></i>
+            @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.FirstNameSortParm, page = ViewBag.CurrentPage, pageSizeSelection = ViewBag.PageSizeSelection, userSearchString = ViewBag.CurrentUserNameFilter, customerFirmName = ViewBag.CurrentFirmNameFilter, customerCity = ViewBag.CurrentCityFilter, partnerName = ViewBag.CurrentPartnerNameFilter, customerZip = ViewBag.CurrentCustomerZipFilter })
+        </th>
+        <th>
+            <i class="fa fa-sort"></i>
+            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.LastNameSortParm, page = ViewBag.CurrentPage, pageSizeSelection = ViewBag.PageSizeSelection, userSearchString = ViewBag.CurrentUserNameFilter, customerFirmName = ViewBag.CurrentFirmNameFilter, customerCity = ViewBag.CurrentCityFilter, partnerName = ViewBag.CurrentPartnerNameFilter, customerZip = ViewBag.CurrentCustomerZipFilter })
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr class="table-row" data-container="body" data-original-title="@item.User.FirstName @item.User.LastName" data-toggle="tooltip" data-placement="top" title="">
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.CustomerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.FirmName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.ZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.PartnerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Partner.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Partner.CreatedOn)    
+            </td>
+            <td class="user-id-column">
+                @Html.DisplayFor(modelItem => item.User.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.LastName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.User.UserId, page = ViewBag.CurrentPage, sortOrder = ViewBag.CurrentSort }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.User.UserId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="text-center form-inline">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+                                new { page, sortOrder = ViewBag.CurrentSort, pageSizeSelection = ViewBag.PageSizeSelection, userSearchString = ViewBag.CurrentUserNameFilter, customerFirmName = ViewBag.CurrentFirmNameFilter, customerCity = ViewBag.CurrentCityFilter, partnerName = ViewBag.CurrentPartnerNameFilter, customerZip = ViewBag.CurrentCustomerZipFilter }))
+
+
+    <span>
+        Show
+        <select id="pagination-selection">
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="250">250</option>
+        </select>
+        Users Per Page
+    </span>
+
+</div>
+
+@section Scripts {
+    
+    <script type="text/javascript">
+        //Helper function to grab actions in the URL
+        function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++) {
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam) {
+                    return sParameterName[1];
+                }
+            }
+        }
+
+        //Function to redirect to user edit upon row click
+        $('.table-row').dblclick(function() {
+            var row = $(this);
+            var rowUserId = row.find('td.user-id-column').text().replace(/ /g, '');
+            var page = getUrlParameter("page");
+            var sortOrder = getUrlParameter("sortOrder");
+            var redirect = "";
+            if (page != null && sortOrder != null) {
+                redirect = "/Home/Edit/" + rowUserId + "?page=" + page + "&sortOrder=" + sortOrder;
+            } else if (page != null && sortOrder == null) {
+                redirect = "/Home/Edit/" + rowUserId + "?page=" + page;
+            } else if (page == null && sortOrder != null) {
+                redirect = "/Home/Edit/" + rowUserId + "?sortOrder=" + sortOrder;
+            } else {
+                redirect = "/Home/Edit/" + rowUserId + "?page=1";
+            }
+            window.location.href = redirect;
+        });
+
+    </script>
+    
+    <script type="text/javascript">
+        //Toggling on bootstrap tooltip
+        $(document).ready(function() {
+            $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+            var pageSizeSelection = getUrlParameter("pageSizeSelection");
+            //Showing correct pagination selection
+            $("#pagination-selection").val(pageSizeSelection != null ? pageSizeSelection : 25);
+        });
+    </script>
+
+    <script>
+        //Used for changing pagination of the page on dropdown select
+        $("#pagination-selection").change(function () {
+            var page = getUrlParameter("page");
+            var sortOrder = getUrlParameter("sortOrder");
+            var redirect = "";
+            if (page != null && sortOrder != null) {
+                redirect = "/Home/Index" + "?page=" + page + "&sortOrder=" + sortOrder + "&pageSizeSelection=" + $(this).val();
+            } else if (page != null && sortOrder == null) {
+                redirect = "/Home/Index" + "?page=" + page + "&pageSizeSelection=" + $(this).val();
+            } else if (page == null && sortOrder != null) {
+                redirect = "/Home/Index" + "?sortOrder=" + sortOrder + "&pageSizeSelection=" + $(this).val();
+            } else {
+                redirect = "/Home/Index" + "?page=1" + "&pageSizeSelection=" + $(this).val();
+            }
+            window.location.href = redirect;
+        });
+    </script>
+    
+}
